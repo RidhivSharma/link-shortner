@@ -21,11 +21,3 @@ A simple and efficient URL shortener built with **Node.js**, **HTML/CSS**, and *
 - **Storage**: JSON for persistent data
 
 ---
-
-## 🚀 Getting Started
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/your-username/linkshot-url-shortener.git
-cd linkshot-url-shortener

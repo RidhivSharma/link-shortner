@@ -1,31 +1,31 @@
-# link-shortner
-A simple and efficient URL shortener built with Node.js, HTML/CSS, and Vanilla JavaScript. Users can shorten long URLs into compact links for easy sharing and access. The backend handles link generation and storage, while the frontend provides a clean, user-friendly interface.
-🌟 Features
+# 🔗 LinkShot.net - URL Shortener
 
-    Custom short links generated via random hash
+A simple and efficient URL shortener built with **Node.js**, **HTML/CSS**, and **Vanilla JavaScript**. This project allows users to shorten long URLs into compact links for easy sharing and access.
 
-    Stores and retrieves links using a JSON-based system (can be upgraded to a database)
+---
 
-    Simple, responsive UI
+## 🌟 Features
 
-    Built-in redirect handler
+- 🔐 Generates short links using random hash
+- 💾 Stores and retrieves links using a JSON file (easily upgradable to a database)
+- 🧼 Clean and responsive UI
+- 🔁 Redirect handler for short URLs
+- ❌ Error handling for invalid/empty URLs
 
-    Error handling for invalid or empty URLs
+---
 
-📁 Tech Stack
+## 📁 Tech Stack
 
-    Node.js (HTTP server, file system)
+- **Backend**: Node.js (HTTP, FS, Crypto)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Storage**: JSON for persistent data
 
-    HTML5, CSS3, JavaScript
+---
 
-    JSON for data persistence
+## 🚀 Getting Started
 
-🚀 Getting Started
+### 1. Clone the repository
 
-    Clone the repo
-
-    Run npm install (if applicable)
-
-    Start the server using node app.js
-
-    Open the browser and go to http://localhost:3000
+```bash
+git clone https://github.com/your-username/linkshot-url-shortener.git
+cd linkshot-url-shortener

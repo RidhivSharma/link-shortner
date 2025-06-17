@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>URL Shortener</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🔗 URL Shortener</h1>
+
+    <label for="originalUrl">Enter your long URL:</label>
+    <input type="text" id="originalUrl" placeholder="https://example.com/very/long/link" />
+
+    <label for="customKeyword">Custom keyword:</label>
+    <input type="text" id="customKeyword" placeholder="my-short-url (optional)" />
+
+    <button id="shortenBtn" onclick="submitForm()">Shorten URL</button>
+
+    <div class="result" id="shortUrlDisplay">
+      <!-- Shortened URL will appear here -->
+    </div>
+  </div>
+
+<script>
+  const originalUrlInput = document.getElementById("originalUrl");
+  const customKeywordInput = document.getElementById("customKeyword");
+  const shortUrlDisplay = document.getElementById("shortUrlDisplay");
+
+  const submitForm = async () => {
+    const url = originalUrlInput.value.trim();
+    const shortcode = customKeywordInput.value.trim();
+
+    if (!url) {
+      alert("Please enter a URL.");
+      return;
+    }
+
+    try {
+      const response = await fetch("/shorten", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, shortcode })
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        shortUrlDisplay.innerHTML = `
+          ✅ Short URL: <a href="/${data.shortcode}" target="_blank">
+          http://localhost:3010/${data.shortcode}</a>
+        `;
+        originalUrlInput.value = "";
+        customKeywordInput.value = "";
+      } else {
+        const errmsg = await response.text();
+        alert("❌ " + errmsg);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong. Please try again.");
+    }
+  };
+</script>
+</body>
+</html>
+
